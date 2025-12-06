@@ -1,0 +1,1861 @@
+{
+	"info": {
+		"_postman_id": "e466c90b-a1ea-4d0d-9864-d72cdb153b5d",
+		"name": "HRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48040962",
+		"_collection_link": "https://cloudy-space-657744.postman.co/workspace/My-Workspace~0f337bf7-6246-4aed-8170-1791858b62e7/collection/48040781-e466c90b-a1ea-4d0d-9864-d72cdb153b5d?action=share&source=collection_link&creator=48040962"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "Attendance",
+					"item": [
+						{
+							"name": "GetAttendanceByEmployeeId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/attendance/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"attendance",
+										":id"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "9",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2025",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68bec4ae8f7ef813aad62fe5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clock-in",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/win 10/Downloads/images-1v.jpg"
+										},
+										{
+											"key": "employeeId",
+											"value": "68bec4ae8f7ef813aad62fe5",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "23.25091",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "77.46479",
+											"type": "text"
+										},
+										{
+											"key": "note",
+											"value": "",
+											"description": "it is optional field",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/attendance/clockIn",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"attendance",
+										"clockIn"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clockOut",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/win 10/Downloads/images-1v.jpg"
+										},
+										{
+											"key": "employeeId",
+											"value": "68bec4ae8f7ef813aad62fe5",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "23.25091",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "77.46479",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/attendance/clockOut",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"attendance",
+										"clockOut"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "getAllEmployee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/employees/?page=1",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"employees",
+										""
+									],
+									"query": [
+										{
+											"key": "position",
+											"value": "HR",
+											"description": "choose any one position - \"HR\", \"MANAGER\", \"TEAM_LEADER\", \"EMPLOYEE\"",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEmployeeById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/employees/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68a5666ad3a514601e90c58f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateEmployeeById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n//   \"firstName\": \"Alok\",\r\n//   \"lastName\": \"Jain\",\r\n  \"image\": \"https://in-maa-1.linodeobjects.com/leadkart/HR/IMAGE/1757502429805_images-1v.jpg\",\r\n  \"adharNumber\":123412341234,\r\n  \"panNumber\":\"eds6c1234\"\r\n//   \"dob\": \"2002-04-15\",\r\n//   \"gender\": \"Male\",\r\n//   \"maritalStatus\": \"Single\",\r\n//   \"permanentAddress\": {\r\n//     \"street\": \"Pradhanpura\",\r\n//     \"city\": \"Bhopal\",\r\n//     \"state\": \"Madhya Pardesh\",\r\n//     \"country\": \"India\",\r\n//     \"zipCode\": 452003\r\n//   },\r\n//   \"currentAddress\": {\r\n//     \"street\": \"Pradhanpura\",\r\n//     \"city\": \"Bhopal\",\r\n//     \"state\": \"Madhya Pardesh\",\r\n//     \"country\": \"India\",\r\n//     \"zipCode\": 452003\r\n//   }\r\n\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/employees/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68bec4ae8f7ef813aad62fe5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Department",
+					"item": [
+						{
+							"name": "get all department",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/departments/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"departments",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Role",
+					"item": [
+						{
+							"name": "get all role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/roles/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"roles",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Company",
+					"item": [
+						{
+							"name": "get company by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/company",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"company"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Leave",
+					"item": [
+						{
+							"name": "create leave",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employeeId\": \"68c009ac8813c8c45d56ee0c\",\r\n  \"leaveType\": \"Sick\", // choose any one - 'Sick', 'Casual', 'Paid', 'Other'\r\n  \"leaveDuration\": \"Full Day\", // choose any one - 'Full Day', 'Half Day'\r\n  \"startDate\": \"15/09/2025\",\r\n  \"endDate\": \"15/09/2025\",\r\n  \"reason\": \"High fever and doctor advised rest\",\r\n  \"phoneNumber\": 9876543210\r\n  //\"status\": \"Pending\" // choose any one - 'Pending', 'Approved', 'Rejected'\r\n // \"approvedBy\": \"68bfc87e07e404d67a24e917\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/leaves/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"leaves",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All leave by employeeId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/leaves/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"leaves",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c009ac8813c8c45d56ee0c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ImageUrl",
+					"item": [
+						{
+							"name": "imageUrl",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/win 10/Downloads/Satya logo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/attendance/imageUrl",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"attendance",
+										"imageUrl"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PayRoll",
+					"item": [
+						{
+							"name": "payrollFilter",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/payroll/payrollFilter?year=2025&employeeId=68c3e82df6cd79275e6e7b5d",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"payroll",
+										"payrollFilter"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2025"
+										},
+										{
+											"key": "employeeId",
+											"value": "68c3e82df6cd79275e6e7b5d"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "payrollById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/payroll/payrollById?payrollId=68c3f5cc9747872bbf3a40c9",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"payroll",
+										"payrollById"
+									],
+									"query": [
+										{
+											"key": "payrollId",
+											"value": "68c3f5cc9747872bbf3a40c9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatePayRollById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"payrollId\":\"68c3f5cc9747872bbf3a40c9\",\r\n//     \"paySalary\":0,\r\n//     \"totalFullDay\":0,\r\n//     \"totalHalfDay\":0,\r\n//     \"totalLeaveOrAbsent\":0,\r\n//     \"totalLate\":0,\r\n       \"status\":\"PAID\" // choose any one - PAID or UNPAID\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/payroll/updatePayRollById",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"payroll",
+										"updatePayRollById"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "downloadPayroll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/payroll/downloadPayroll?paySlipId=68c92ee3a77f02a9ea102730",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"payroll",
+										"downloadPayroll"
+									],
+									"query": [
+										{
+											"key": "paySlipId",
+											"value": "68c92ee3a77f02a9ea102730"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Work From Home",
+					"item": [
+						{
+							"name": "Create work from home",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employeeId\": \"68c009ac8813c8c45d56ee0c\",\r\n  \"leaveType\": \"Sick\", // choose any one - 'Sick', 'Casual', 'Paid', 'Other'\r\n  \"leaveDuration\": \"Full Day\", // choose any one - 'Full Day', 'Half Day'\r\n  \"startDate\": \"12/09/2025\",\r\n  \"endDate\": \"12/09/2025\",\r\n  \"reason\": \"High fever and doctor advised rest\",\r\n  \"phoneNumber\": 9876543210\r\n  //\"status\": \"Pending\" // choose any one - 'Pending', 'Approved', 'Rejected'\r\n // \"approvedBy\": \"68bfc87e07e404d67a24e917\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/wfh/",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"wfh",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Approved\" // choose any one - \"Approved\", \"Rejected\"\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/wfh/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"wfh",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c401f4f4eb2be53ef751ce"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getWFHByEmployeeId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Approved\" // choose any one - \"Approved\", \"Rejected\"\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/wfh/getWFHByEmployeeId/:employeeId",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"wfh",
+										"getWFHByEmployeeId",
+										":employeeId"
+									],
+									"variable": [
+										{
+											"key": "employeeId",
+											"value": "68c009ac8813c8c45d56ee0c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Appraisal",
+					"item": [
+						{
+							"name": "Create Appraisals",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employeeId\":\"\",\r\n    \"appraisalDate\":\"\",\r\n    \"rating\":5,\r\n    \"comments\":\"This is for you hard working\",\r\n    \"incrementPercentage\":10,\r\n    \"nextReviewDate\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/appraisals",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"appraisals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Appraisals",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employeeId\":\"\",\r\n    \"appraisalDate\":\"\",\r\n    \"rating\":5,\r\n    \"comments\":\"This is for you hard working\",\r\n    \"incrementPercentage\":10,\r\n    \"nextReviewDate\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/appraisals/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"appraisals",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "getAllNotificationByuserId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/notification/getAllNotificationByuserId?employeeId=68bec4ae8f7ef813aad62fe5",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"getAllNotificationByuserId"
+									],
+									"query": [
+										{
+											"key": "employeeId",
+											"value": "68bec4ae8f7ef813aad62fe5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getNotificationById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/notification/getNotificationById?notificationId=68ce82b8ecd0bd66a03dc483",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"getNotificationById"
+									],
+									"query": [
+										{
+											"key": "notificationId",
+											"value": "68ce82b8ecd0bd66a03dc483"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notificationSeenCount",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/notification/notificationSeenCount?employeeId=68bec4ae8f7ef813aad62fe5",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"notificationSeenCount"
+									],
+									"query": [
+										{
+											"key": "employeeId",
+											"value": "68bec4ae8f7ef813aad62fe5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "Department",
+					"item": [
+						{
+							"name": "create departments",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"departmentName\":\"HR JI DEPARTMENT\",\r\n    \"description\":\"This is HR department\",\r\n    \"managerId\":\"68bfc87e07e404d67a24e917\"\r\n    //\"companyId\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/departments/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"departments",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update departments",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"departmentName\":\" DEPARTMENT\",\r\n    // \"description\":\"This is IT department\",\r\n    \"managerId\":\"68c009ac8813c8c45d56ee0c\",\r\n    \"companyId\":\"68c00e774746abbd5607a2bc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/departments/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c009088813c8c45d56ee08"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete departments",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/departments/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c009f48813c8c45d56ee11"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all department",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/departments/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"departments",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Role",
+					"item": [
+						{
+							"name": "create role",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"roleName\": \"MANAGER-1\",\r\n  \"description\": \"Responsible for employee management, leaves, and appraisals.\",\r\n  \"permissions\": [\r\n    \"create_employee\",\r\n    \"update_employee\",\r\n    \"delete_employee\",\r\n    \"view_employee\",\r\n    \"approve_leave\",\r\n    \"reject_leave\",\r\n    \"view_attendance\",\r\n    \"manage_appraisal\",\r\n    \"view_appraisal\",\r\n    \"manage_wfh\",\r\n    \"view_wfh\"\r\n  ]\r\n  //\"companyId\": \"64b8c2f5e4c1d2a7890f1234\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/roles/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"roles",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update role",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n//   \"roleName\": \"HR\",\r\n  \"description\": \"Responsible for employee management, leaves, and appraisals.\",\r\n  \"permissions\": [\r\n    \"create_employee\",\r\n    \"update_employee\",\r\n    \"delete_employee\",\r\n    \"view_employee\",\r\n    \"approve_leave\",\r\n    \"reject_leave\",\r\n    \"view_attendance\",\r\n    \"manage_appraisal\",\r\n    \"view_appraisal\",\r\n    \"manage_wfh\",\r\n    \"view_wfh\",\r\n    \"manage_notifications\"\r\n  ],\r\n  \"companyId\": \"68c00e774746abbd5607a2bc\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/roles/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c00b48f048d7b9da4942f8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete role",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/roles/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c00c0a4746abbd5607a2b7"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/roles/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"roles",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "getAllEmployee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/employees/?position=MANAGER&page=1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"employees",
+										""
+									],
+									"query": [
+										{
+											"key": "position",
+											"value": "MANAGER",
+											"description": "choose any one position - \"HR\", \"MANAGER\", \"TEAM_LEADER\", \"EMPLOYEE\""
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEmployeeById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/employees/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68a5666ad3a514601e90c58f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateEmployeeById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"Alok\",\r\n  \"lastName\": \"Jain\",\r\n  \"image\": \"https.www.com\",\r\n  \"dob\": \"2002-04-15\",\r\n  \"gender\": \"Male\",\r\n  \"maritalStatus\": \"Single\",\r\n  \"permanentAddress\": {\r\n    \"street\": \"Pradhanpura\",\r\n    \"city\": \"Bhopal\",\r\n    \"state\": \"Madhya Pardesh\",\r\n    \"country\": \"India\",\r\n    \"zipCode\": 452003\r\n  },\r\n  \"currentAddress\": {\r\n    \"street\": \"Pradhanpura\",\r\n    \"city\": \"Bhopal\",\r\n    \"state\": \"Madhya Pardesh\",\r\n    \"country\": \"India\",\r\n    \"zipCode\": 452003\r\n  }\r\n\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/employees/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"employees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68a5666ad3a514601e90c58f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "employees",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"Admin\",\r\n  \"lastName\": \"Satya Kabir\",\r\n  \"image\": \"https.www.com\",\r\n  \"designation\": \"Admin\",\r\n  \"email\": \"admin@satyakabir.com\",\r\n  \"phone\": 1112223335,\r\n  \"dob\": \"2005-04-15\",\r\n  \"gender\": \"Male\",\r\n  \"maritalStatus\": \"Single\",\r\n  \"permanentAddress\": {\r\n    \"street\": \"Pradhanpura\",\r\n    \"city\": \"Bhopal\",\r\n    \"state\": \"Madhya Pardesh\",\r\n    \"country\": \"India\",\r\n    \"zipCode\": 452003\r\n  },\r\n  \"currentAddress\": {\r\n    \"street\": \"Pradhanpura\",\r\n    \"city\": \"Bhopal\",\r\n    \"state\": \"Madhya Pardesh\",\r\n    \"country\": \"India\",\r\n    \"zipCode\": 452003\r\n  },\r\n  \"joiningDate\": \"2020-02-14\",\r\n  \"probationEndDate\": \"2020-04-14\",\r\n  \"status\": \"Active\",\r\n  \"salary\": {\r\n    \"basicSalary\": 120000,\r\n    \"allowances\": 0,\r\n    \"deductions\": 0,\r\n    \"netSalary\": 120000,\r\n    \"bankAccount\": {\r\n      \"accountNumber\": \"5555005590183\",\r\n      \"bankName\": \"State Bank Of India\",\r\n      \"ifsc\": \"SBIN8055009\"\r\n    }\r\n  },\r\n  \"username\": \"adminsatyakabir\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"Admin\", // choose any one - \"Admin\", \"HR\", \"Employee\"\r\n  \"position\": \"ADMIN\" // choose any one position - \"HR\", \"MANAGER\", \"TEAM_LEADER\", \"EMPLOYEE\", \"ADMIN\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/employees",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Company",
+					"item": [
+						{
+							"name": "create company",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"companyName\": \"Satya Kabir E-Solutions Pvt. Ltd.\",\r\n  \"email\": \"contact@satyakabir.com\",\r\n  \"phone\": \"+91-755-1234567\",\r\n  \"website\": \"https://www.satyakabir.com\",\r\n  \"address\": {\r\n    \"street\": \"Indrapuri, Sector-C\",\r\n    \"city\": \"Bhopal\",\r\n    \"state\": \"Madhya Pradesh\",\r\n    \"country\": \"India\",\r\n    \"zipCode\": \"462021\"\r\n  },\r\n  \"logoUrl\": \"https://www.satyakabir.com/images/logo.png\",\r\n  \"bannerUrl\": \"https://www.satyakabir.com/images/banner.jpg\",\r\n  \"supportContact\": \"+91-755-1234567\",\r\n  \"whatsappContact\": \"+91-9826012345\",\r\n  \"guideVideoUrl\": \"https://www.satyakabir.com/videos/company-intro.mp4\",\r\n  \"latitude\": 23.2526,\r\n  \"longitude\": 77.4652\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/company",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all company",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/company/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"company",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get company by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/company/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"company",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c00e774746abbd5607a2bc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update company by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"companyName\": \"Satya Kabir E-Solutions Pvt. Ltd.\",\r\n  \"email\": \"contact@satyakabir.com\",\r\n  \"phone\": \"+91-755-1234567\",\r\n  \"website\": \"https://www.satyakabir.com\",\r\n  \"address\": {\r\n    \"street\": \"Indrapuri, Sector-C, Behind of Archana Tower\",\r\n    \"city\": \"Bhopal\",\r\n    \"state\": \"Madhya Pradesh\",\r\n    \"country\": \"India\",\r\n    \"zipCode\": \"462021\"\r\n  },\r\n  \"logoUrl\": \"https://www.satyakabir.com/images/logo.png\",\r\n  \"bannerUrl\": \"https://www.satyakabir.com/images/banner.jpg\",\r\n  \"supportContact\": \"+91-755-1234567\",\r\n  \"whatsappContact\": \"+91-9826012345\",\r\n  \"guideVideoUrl\": \"https://www.satyakabir.com/videos/company-intro.mp4\",\r\n  \"latitude\": 23.2526,\r\n  \"longitude\": 77.4652\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/company/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"company",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c00e774746abbd5607a2bc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Salary",
+					"item": [
+						{
+							"name": "create salary",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employeeId\": \"68bff0018813c8c45d56ee00\",\r\n  \"basicSalary\": 25000,\r\n  \"allowances\": 0,\r\n  \"deductions\": 2000,\r\n  \"netSalary\": 23000,\r\n  \"month\": 9,\r\n  \"year\": 2025,\r\n  \"paymentDate\": \"2025-09-05T10:00:00.000Z\",\r\n  \"status\": \"Paid\" // choose any one - 'Pending', 'Paid'\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/salary/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"salary",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update salary",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"basicSalary\": 26000,\r\n  \"allowances\": 0,\r\n  \"deductions\": 1000\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/salary/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"salary",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c015ccce8bdadf337918d3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get salary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/salary/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"salary",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Work From Home",
+					"item": []
+				},
+				{
+					"name": "PayRoll",
+					"item": [
+						{
+							"name": "payrollFilter",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/payroll/payrollFilter?year=2025&employeeId=68c009ac8813c8c45d56ee0c",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"payroll",
+										"payrollFilter"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2025"
+										},
+										{
+											"key": "employeeId",
+											"value": "68c009ac8813c8c45d56ee0c"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "payrollById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/payroll/payrollById?payrollId=68c3bd81b09f2081a61dfbdf",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"payroll",
+										"payrollById"
+									],
+									"query": [
+										{
+											"key": "payrollId",
+											"value": "68c3bd81b09f2081a61dfbdf"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatePayRollById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\r\n//     \"payrollId\":\"\",\r\n//     \"paySalary\":0,\r\n//     \"totalFullDay\":0,\r\n//     \"totalHalfDay\":0,\r\n//     \"totalLeaveOrAbsent\":0,\r\n//     \"totalLate\":0\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/payroll/updatePayRollById",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"payroll",
+										"updatePayRollById"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllEmployeePayRoll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/payroll/getAllEmployeePayRoll",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"payroll",
+										"getAllEmployeePayRoll"
+									],
+									"query": [
+										{
+											"key": "history",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "PAID",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "RUDRA KUMAR",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generateCurrentMonthPayrollExcel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/payroll/generateCurrentMonthPayrollExcel",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"payroll",
+										"generateCurrentMonthPayrollExcel"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Leave",
+					"item": [
+						{
+							"name": "create leave",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employeeId\": \"68c3e82df6cd79275e6e7b5d\",\r\n  \"leaveType\": \"Sick\", // choose any one - 'Sick', 'Casual', 'Paid', 'Other'\r\n  \"leaveDuration\": \"Full Day\", // choose any one - 'Full Day', 'Half Day'\r\n  \"startDate\": \"12/12/2025\",\r\n  \"endDate\": \"12/12/2025\",\r\n  \"reason\": \"High fever and doctor advised rest\",\r\n  \"phoneNumber\": 9876543210\r\n  //\"status\": \"Pending\" // choose any one - 'Pending', 'Approved', 'Rejected'\r\n // \"approvedBy\": \"68bfc87e07e404d67a24e917\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/leaves/",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"leaves",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All leave by employeeId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/leaves/68c3e82df6cd79275e6e7b5d",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"leaves",
+										"68c3e82df6cd79275e6e7b5d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "approveLeave",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Approved\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/leaves/approveLeave/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"leaves",
+										"approveLeave",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c40d510d6893b0aa559b31"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rejectLeave",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/leaves/rejectLeave/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"leaves",
+										"rejectLeave",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c40cdb0d6893b0aa559b2b"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Work From Home",
+					"item": [
+						{
+							"name": "Create work from home",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employeeId\": \"68c009ac8813c8c45d56ee0c\",\r\n  \"leaveType\": \"Sick\", // choose any one - 'Sick', 'Casual', 'Paid', 'Other'\r\n  \"leaveDuration\": \"Full Day\", // choose any one - 'Full Day', 'Half Day'\r\n  \"startDate\": \"12/09/2025\",\r\n  \"endDate\": \"12/09/2025\",\r\n  \"reason\": \"High fever and doctor advised rest\",\r\n  \"phoneNumber\": 9876543210\r\n  //\"status\": \"Pending\" // choose any one - 'Pending', 'Approved', 'Rejected'\r\n // \"approvedBy\": \"68bfc87e07e404d67a24e917\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/wfh/",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"wfh",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateWFHStatus",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Approved\" // choose any one - \"Approved\", \"Rejected\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/wfh/updateWFHStatus/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"wfh",
+										"updateWFHStatus",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c401f4f4eb2be53ef751ce"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Approved\" // choose any one - \"Approved\", \"Rejected\"\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/wfh/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"wfh",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "68c401f4f4eb2be53ef751ce"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getWFHByEmployeeId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"Approved\" // choose any one - \"Approved\", \"Rejected\"\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/wfh/getWFHByEmployeeId/:employeeId",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"wfh",
+										"getWFHByEmployeeId",
+										":employeeId"
+									],
+									"variable": [
+										{
+											"key": "employeeId",
+											"value": "68c009ac8813c8c45d56ee0c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "adminLogin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\":\"admin@satyakabir.com\",\r\n  \"password\":\"123456\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/employees/adminLogin",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"employees",
+										"adminLogin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "sendNotification",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/notification/sendNotification",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"sendNotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllNotificationByuserId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/notification/getAllNotificationByuserId?employeeId=68bec4ae8f7ef813aad62fe5",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"getAllNotificationByuserId"
+									],
+									"query": [
+										{
+											"key": "employeeId",
+											"value": "68bec4ae8f7ef813aad62fe5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getNotificationById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/notification/getNotificationById?notificationId=68ce82b8ecd0bd66a03dc483",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"getNotificationById"
+									],
+									"query": [
+										{
+											"key": "notificationId",
+											"value": "68ce82b8ecd0bd66a03dc483"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notificationSeenCount",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Testing Notification By Shlok\",\r\n    \"message\":\"Server Down Guys !!\",\r\n    // \"employeeId\":\"\",\r\n    // \"role\":\"\", // when you want to send notification to particular role\r\n    \"sendAll\":\"true\" // use it when you want to send notification to all users\r\n}"
+								},
+								"url": {
+									"raw": "{{local}}/notification/notificationSeenCount?employeeId=68bec4ae8f7ef813aad62fe5",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"notification",
+										"notificationSeenCount"
+									],
+									"query": [
+										{
+											"key": "employeeId",
+											"value": "68bec4ae8f7ef813aad62fe5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "getDashboard",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/admin/getDashboard",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"admin",
+										"getDashboard"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
