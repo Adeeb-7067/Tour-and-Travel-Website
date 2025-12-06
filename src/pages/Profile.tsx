@@ -136,9 +136,7 @@ const UserProfilePage: React.FC = () => {
   useEffect(() => {
     fetchUserData();
     // Only fetch bookings if user is not Agent
-    if (role !== "Agent") {
       fetchBookings();
-    }
   }, [userData?.role]);
 
   const fetchUserData = async () => {
@@ -271,16 +269,6 @@ const UserProfilePage: React.FC = () => {
       case "edit-profile":
         return <EditProfileView user={userData} onUpdate={handleUpdateUser} />;
       case "my-bookings":
-        // Don't show bookings for Agent role
-        if (userData.role === "Agent") {
-          return (
-            <div className="tg-blog-sidebar-box">
-              <div className="alert alert-info" role="alert">
-                Bookings are not available for Agent accounts.
-              </div>
-            </div>
-          );
-        }
         return <MyBookingsView bookings={bookings} loading={bookingLoading} />;
       default:
         return <DashboardView user={userData} />;
@@ -1067,7 +1055,6 @@ const MyBookingsView = ({ bookings, loading }: { bookings: any[]; loading: boole
                           </button>
                         </li>
                         {/* Only show My Bookings tab for non-Agent users */}
-                        {userData?.role !== "Agent" && (
                           <li>
                             <button
                               className="profile-nav-link"
@@ -1076,7 +1063,6 @@ const MyBookingsView = ({ bookings, loading }: { bookings: any[]; loading: boole
                               <i className="fas fa-receipt me-3"></i> My Bookings
                             </button>
                           </li>
-                        )}
                         <li className="mt-20">
                           <button
                             onClick={handleLogOut}
