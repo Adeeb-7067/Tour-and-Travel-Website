@@ -146,7 +146,7 @@ const userId = localStorage.getItem('userId')
       };
 
 
-      const res = await axios.get(`${BASE_URL}packages`, {
+      const res = await axios.get(`${BASE_URL}packages?isDisabled=true`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

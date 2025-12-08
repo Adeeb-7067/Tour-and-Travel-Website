@@ -261,7 +261,7 @@ const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
         })) || [],
       totalAmount: calculateTotal(),
       customerInfo,
-      travelerDetails: travelerForms,
+      travelerDetailsMap: travelerForms,
     };
 
     // ================================

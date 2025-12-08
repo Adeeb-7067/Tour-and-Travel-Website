@@ -6,8 +6,8 @@ import { fetchReviews } from "../../../../redux/features/reviewSlice";
 const ReviewDetails = () => {
   const dispatch = useAppDispatch();
   const { reviews, pagination, loading, error } = useAppSelector((state) => state.review);
-  
-  const params = useParams(); 
+
+  const params = useParams();
   const packageId = params.id;
 
   // Memoized fetch function
@@ -25,20 +25,20 @@ const ReviewDetails = () => {
   const formatDate = useCallback((dateString: string) => {
     try {
       const date = new Date(dateString);
-      return date.toLocaleDateString("en-Gb",{
-                                  day:'2-digit',
-                                  month:'numeric',
-                                  year:'2-digit'
-                                })
+      return date.toLocaleDateString("en-Gb", {
+        day: '2-digit',
+        month: 'numeric',
+        year: '2-digit'
+      })
     } catch (error) {
       return 'Invalid date';
     }
   }, []);
 
   const renderStars = useCallback((rating: number) => {
-    const safeRating = Math.max(0, Math.min(5, rating || 0)); 
+    const safeRating = Math.max(0, Math.min(5, rating || 0));
     return Array.from({ length: 5 }, (_, index) => (
-      <i 
+      <i
         key={index}
         className={`fa-sharp fa-solid fa-star ${index < safeRating ? 'text-warning' : 'text-light'}`}
       ></i>
@@ -76,7 +76,7 @@ const ReviewDetails = () => {
       <h4 className="tg-tour-about-title mb-40">
         {reviewCount} Reviews
       </h4>
-      
+
       {safeReviews.length === 0 ? (
         <div className="text-center py-4 text-muted">
           No reviews yet. Be the first to review!
@@ -84,7 +84,7 @@ const ReviewDetails = () => {
       ) : (
         <ul>
           {safeReviews.map((review, index) => (
-            <ReviewItem 
+            <ReviewItem
               key={review._id || index}
               review={review}
               index={index}
@@ -104,8 +104,8 @@ const ReviewItem = ({ review, index, totalReviews, formatDate, renderStars }: an
   <li>
     <div className="tg-tour-about-cus-review d-flex mb-40">
       <div className="tg-tour-about-cus-review-thumb">
-        <img 
-          src={review.userId?.avatarUrl || "/assets/img/tour-details/avatar.png"} 
+        <img
+          src={review.userId?.avatarUrl || "/assets/img/tour-details/avatar.png"}
           alt={review.userId?.firstName || 'User'}
           className="rounded-circle"
           style={{ width: '60px', height: '60px', objectFit: 'cover' }}
@@ -117,7 +117,7 @@ const ReviewItem = ({ review, index, totalReviews, formatDate, renderStars }: an
       <div className="ms-3 flex-grow-1">
         <div className="tg-tour-about-cus-name mb-5 d-flex align-items-center justify-content-between flex-wrap">
           <h6 className="mr-10 mb-10 d-inline-block">
-            {review.userId?.firstName || 'Anonymous User'} 
+            {review.userId?.firstName || 'Anonymous User'}
             <span className="text-muted ms-2">- {formatDate(review.createdAt)}</span>
           </h6>
           <span className="tg-tour-about-cus-review-star mb-10 d-inline-block">
@@ -127,7 +127,7 @@ const ReviewItem = ({ review, index, totalReviews, formatDate, renderStars }: an
         <p className="text-capitalize lh-28 mb-10">
           {review.review || 'No review text provided.'}
         </p>
-        
+
         {/* Additional ratings if available */}
         {(review.location || review.price || review.services) && (
           <AdditionalRatings review={review} />
